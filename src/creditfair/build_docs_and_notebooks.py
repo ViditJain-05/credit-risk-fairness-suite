@@ -337,6 +337,8 @@ All models are evaluated **once** on the held-out test set ($N = {eda['split_siz
 
 - **Why Probability Calibration Matters:** Uncalibrated class-weighted XGBoost achieves strong ranking (`ROC-AUC = {xgb_w['roc_auc']:.4f}`), but `scale_pos_weight` inflates predicted probabilities (`Brier = {xgb_w['brier_score']:.4f}`). Wrapping the model with validation-set **Isotonic Regression** lowers the Brier score to **`{xgb_m['brier_score']:.4f}`** so predicted scores represent true empirical default probabilities.
 
+![Calibration Curve and Credit-Industry Metrics](assets/calibration_and_ks_benchmark.png)
+
 ---
 
 ## 🔍 3. Explainability: TreeSHAP, Adverse Action Notices & Proxy Leakage Audit
@@ -353,6 +355,8 @@ All models are evaluated **once** on the held-out test set ($N = {eda['split_siz
 | Principal Reason Rank | Feature Code | SHAP Contribution (Log-Odds) | Plain-English Adverse Action Reason Code |
 | :---: | :--- | :---: | :--- |
 {adverse_reason_lines}
+
+![Global SHAP Importance and Local Adverse Action Decomposition](assets/shap_and_adverse_action.png)
 
 ### 3.3 Explanation Stability & Demographic Proxy Leakage
 - **Local Explanation Stability ($k={explain['stability_audit']['k_neighbors_evaluated']}$ Nearest Neighbors across $N={explain['stability_audit']['n_reference_applicants']}$ test applicants):**
@@ -385,6 +389,8 @@ All models are evaluated **once** on the held-out test set ($N = {eda['split_siz
 - **Equalized Odds Difference:** `{age_audit['summary_metrics']['equalized_odds_difference']:.4f}` (95% Bootstrap CI: `[{age_ci['equalized_odds_difference']['ci_lower_95']:.4f}, {age_ci['equalized_odds_difference']['ci_upper_95']:.4f}]`)
 - **Disparate Impact Ratio (Approval):** `{age_audit['summary_metrics']['disparate_impact_approval_ratio']:.4f}` (95% Bootstrap CI: `[{age_ci['disparate_impact_approval_ratio']['ci_lower_95']:.4f}, {age_ci['disparate_impact_approval_ratio']['ci_upper_95']:.4f}]`)
 
+![Fairlearn Subgroup Audit and Proxy Leakage](assets/fairness_and_proxy_audit.png)
+
 ---
 
 ## 🛠️ 5. Algorithmic Bias Mitigation & The Legal/Accuracy Trade-Off
@@ -403,6 +409,8 @@ We benchmark three distinct intervention families in [`src/creditfair/mitigate.p
 | Method | Paradigm | Protected Attr at Inference? | Accuracy | F1 | Expected Cost/App $\\downarrow$ | DP Diff $\\downarrow$ | Equalized Odds Diff $\\downarrow$ | Approval DI Ratio |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 {age_mit_rows}
+
+![Bias Mitigation Trade-Off Benchmark](assets/bias_mitigation_tradeoff.png)
 
 > **⚖️ Disparate Impact vs. Disparate Treatment in Regulated Lending:** While `ThresholdOptimizer` reduces `SEX` Demographic Parity Difference to `{sex_mit[5]['demographic_parity_difference']:.4f}`, it **requires passing the applicant's protected attribute at inference time** (`Protected Attr at Inference = Yes ⚠️`) to apply different credit score cutoffs by demographic group. Under US ECOA and EU non-discrimination law, applying explicitly different score cutoffs by sex or age constitutes **Disparate Treatment**. Consequently, **In-processing (`ExponentiatedGradient`)** and **Pre-processing (Sample Reweighing)** are preferred in production lending because they reduce disparities without using protected attributes at decision time.
 
