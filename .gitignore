@@ -1,0 +1,38 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Raw dataset (downloaded via script; processed & artifacts are tracked for Streamlit Cloud)
+data/raw/*
+!data/raw/.gitkeep
+
+# Python byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing & Jupyter
+.pytest_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# OS & IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Secrets
+.env
+.env.*
+*.env

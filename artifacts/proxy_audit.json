@@ -1,0 +1,68 @@
+{
+  "SEX_proxy": {
+    "roc_auc": 0.6166,
+    "random_chance_auc": 0.5,
+    "accuracy": 0.6284,
+    "majority_class_baseline_accuracy": 0.6076,
+    "top_proxy_features": [
+      {
+        "feature": "LIMIT_BAL",
+        "importance": 0.0887
+      },
+      {
+        "feature": "EDUCATION",
+        "importance": 0.0615
+      },
+      {
+        "feature": "BILL_AMT6",
+        "importance": 0.056
+      },
+      {
+        "feature": "MAX_DELINQUENCY_6M",
+        "importance": 0.049
+      },
+      {
+        "feature": "PAY_2",
+        "importance": 0.0442
+      },
+      {
+        "feature": "BILL_AMT2",
+        "importance": 0.0429
+      }
+    ],
+    "interpretation": "Allowed features predict SEX with ROC-AUC = 0.617 (well above 0.50 random chance), proving that dropping SEX from training features does not prevent indirect gender encoding."
+  },
+  "AGE_GROUP_proxy": {
+    "macro_ovr_roc_auc": 0.6393,
+    "random_chance_auc": 0.5,
+    "accuracy": 0.4293,
+    "majority_class_baseline_accuracy": 0.3778,
+    "top_proxy_features": [
+      {
+        "feature": "LIMIT_BAL",
+        "importance": 0.1569
+      },
+      {
+        "feature": "EDUCATION",
+        "importance": 0.1544
+      },
+      {
+        "feature": "PAY_2",
+        "importance": 0.0532
+      },
+      {
+        "feature": "PAY_4",
+        "importance": 0.0463
+      },
+      {
+        "feature": "MONTHS_DELINQUENT_6M",
+        "importance": 0.0334
+      },
+      {
+        "feature": "PAY_TO_BILL_RATIO_1",
+        "importance": 0.0287
+      }
+    ],
+    "interpretation": "Allowed features (especially LIMIT_BAL and EDUCATION) predict AGE_GROUP with Macro ROC-AUC = 0.639, acting as strong demographic proxies."
+  }
+}

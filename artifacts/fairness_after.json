@@ -1,0 +1,587 @@
+{
+  "comparisons": {
+    "SEX": [
+      {
+        "method": "Unmitigated Baseline (XGBoost)",
+        "paradigm": "Baseline",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.783,
+        "accuracy": 0.6109,
+        "f1_score": 0.4815,
+        "selection_rate_denial": 0.5291,
+        "approval_rate": 0.4709,
+        "expected_cost_per_applicant": 0.5518,
+        "demographic_parity_difference": 0.0406,
+        "equal_opportunity_difference": 0.0312,
+        "equalized_odds_difference": 0.0367,
+        "disparate_impact_approval_ratio": 0.9165,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.6192,
+            "selection_rate_denial": 0.5132,
+            "approval_rate": 0.4868,
+            "tpr": 0.8303,
+            "fpr": 0.4337,
+            "precision": 0.3243
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.598,
+            "selection_rate_denial": 0.5538,
+            "approval_rate": 0.4462,
+            "tpr": 0.7991,
+            "fpr": 0.4704,
+            "precision": 0.3661
+          }
+        }
+      },
+      {
+        "method": "Pre-Processing: Sample Reweighing",
+        "paradigm": "Pre-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.7831,
+        "accuracy": 0.57,
+        "f1_score": 0.4686,
+        "selection_rate_denial": 0.5878,
+        "approval_rate": 0.4122,
+        "expected_cost_per_applicant": 0.5571,
+        "demographic_parity_difference": 0.0345,
+        "equal_opportunity_difference": 0.0312,
+        "equalized_odds_difference": 0.0312,
+        "disparate_impact_approval_ratio": 0.919,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.5743,
+            "selection_rate_denial": 0.5743,
+            "approval_rate": 0.4257,
+            "tpr": 0.8704,
+            "fpr": 0.5,
+            "precision": 0.3038
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.5634,
+            "selection_rate_denial": 0.6087,
+            "approval_rate": 0.3913,
+            "tpr": 0.8393,
+            "fpr": 0.5303,
+            "precision": 0.3498
+          }
+        }
+      },
+      {
+        "method": "In-Processing: ExponentiatedGradient (Demographic Parity)",
+        "paradigm": "In-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.6261,
+        "accuracy": 0.7958,
+        "f1_score": 0.3316,
+        "selection_rate_denial": 0.0842,
+        "approval_rate": 0.9158,
+        "expected_cost_per_applicant": 0.8869,
+        "demographic_parity_difference": 0.0096,
+        "equal_opportunity_difference": 0.0388,
+        "equalized_odds_difference": 0.0388,
+        "disparate_impact_approval_ratio": 0.9896,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.8178,
+            "selection_rate_denial": 0.0805,
+            "approval_rate": 0.9195,
+            "tpr": 0.2464,
+            "fpr": 0.0389,
+            "precision": 0.6136
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.7616,
+            "selection_rate_denial": 0.09,
+            "approval_rate": 0.91,
+            "tpr": 0.2076,
+            "fpr": 0.0501,
+            "precision": 0.5849
+          }
+        }
+      },
+      {
+        "method": "In-Processing: ExponentiatedGradient (Equalized Odds)",
+        "paradigm": "In-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.6264,
+        "accuracy": 0.794,
+        "f1_score": 0.3439,
+        "selection_rate_denial": 0.0927,
+        "approval_rate": 0.9073,
+        "expected_cost_per_applicant": 0.8753,
+        "demographic_parity_difference": 0.0115,
+        "equal_opportunity_difference": 0.0337,
+        "equalized_odds_difference": 0.0337,
+        "disparate_impact_approval_ratio": 0.9874,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.8153,
+            "selection_rate_denial": 0.0881,
+            "approval_rate": 0.9119,
+            "tpr": 0.2591,
+            "fpr": 0.0453,
+            "precision": 0.5892
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.761,
+            "selection_rate_denial": 0.0997,
+            "approval_rate": 0.9003,
+            "tpr": 0.2254,
+            "fpr": 0.0569,
+            "precision": 0.5739
+          }
+        }
+      },
+      {
+        "method": "Post-Processing: ThresholdOptimizer (Demographic Parity)",
+        "paradigm": "Post-processing",
+        "requires_sensitive_at_inference": true,
+        "roc_auc": null,
+        "accuracy": 0.818,
+        "f1_score": 0.4356,
+        "selection_rate_denial": 0.1011,
+        "approval_rate": 0.8989,
+        "expected_cost_per_applicant": 0.7864,
+        "demographic_parity_difference": 0.007,
+        "equal_opportunity_difference": 0.0817,
+        "equalized_odds_difference": 0.0817,
+        "disparate_impact_approval_ratio": 0.9922,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.8376,
+            "selection_rate_denial": 0.1039,
+            "approval_rate": 0.8961,
+            "tpr": 0.354,
+            "fpr": 0.0412,
+            "precision": 0.6831
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.7877,
+            "selection_rate_denial": 0.0968,
+            "approval_rate": 0.9032,
+            "tpr": 0.2723,
+            "fpr": 0.0372,
+            "precision": 0.7135
+          }
+        }
+      },
+      {
+        "method": "Post-Processing: ThresholdOptimizer (Equalized Odds)",
+        "paradigm": "Post-processing",
+        "requires_sensitive_at_inference": true,
+        "roc_auc": null,
+        "accuracy": 0.8189,
+        "f1_score": 0.4504,
+        "selection_rate_denial": 0.1082,
+        "approval_rate": 0.8918,
+        "expected_cost_per_applicant": 0.7696,
+        "demographic_parity_difference": 0.0001,
+        "equal_opportunity_difference": 0.074,
+        "equalized_odds_difference": 0.074,
+        "disparate_impact_approval_ratio": 0.9999,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "Female": {
+            "count": 2734,
+            "base_default_rate": 0.2004,
+            "accuracy": 0.8391,
+            "selection_rate_denial": 0.1083,
+            "approval_rate": 0.8917,
+            "tpr": 0.3686,
+            "fpr": 0.043,
+            "precision": 0.6824
+          },
+          "Male": {
+            "count": 1766,
+            "base_default_rate": 0.2537,
+            "accuracy": 0.7877,
+            "selection_rate_denial": 0.1082,
+            "approval_rate": 0.8918,
+            "tpr": 0.2946,
+            "fpr": 0.0448,
+            "precision": 0.6911
+          }
+        }
+      }
+    ],
+    "AGE_GROUP": [
+      {
+        "method": "Unmitigated Baseline (XGBoost)",
+        "paradigm": "Baseline",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.783,
+        "accuracy": 0.6109,
+        "f1_score": 0.4815,
+        "selection_rate_denial": 0.5291,
+        "approval_rate": 0.4709,
+        "expected_cost_per_applicant": 0.5518,
+        "demographic_parity_difference": 0.0684,
+        "equal_opportunity_difference": 0.0789,
+        "equalized_odds_difference": 0.0789,
+        "disparate_impact_approval_ratio": 0.8646,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.5948,
+            "selection_rate_denial": 0.5636,
+            "approval_rate": 0.4364,
+            "tpr": 0.8567,
+            "fpr": 0.48,
+            "precision": 0.3375
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.6294,
+            "selection_rate_denial": 0.4953,
+            "approval_rate": 0.5047,
+            "tpr": 0.8081,
+            "fpr": 0.4159,
+            "precision": 0.3302
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.6062,
+            "selection_rate_denial": 0.5262,
+            "approval_rate": 0.4738,
+            "tpr": 0.7919,
+            "fpr": 0.4483,
+            "precision": 0.3411
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.601,
+            "selection_rate_denial": 0.5572,
+            "approval_rate": 0.4428,
+            "tpr": 0.7778,
+            "fpr": 0.4694,
+            "precision": 0.3974
+          }
+        }
+      },
+      {
+        "method": "Pre-Processing: Sample Reweighing",
+        "paradigm": "Pre-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.7836,
+        "accuracy": 0.5687,
+        "f1_score": 0.4672,
+        "selection_rate_denial": 0.5882,
+        "approval_rate": 0.4118,
+        "expected_cost_per_applicant": 0.5602,
+        "demographic_parity_difference": 0.0809,
+        "equal_opportunity_difference": 0.0603,
+        "equalized_odds_difference": 0.0671,
+        "disparate_impact_approval_ratio": 0.8185,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.5474,
+            "selection_rate_denial": 0.6266,
+            "approval_rate": 0.3734,
+            "tpr": 0.8917,
+            "fpr": 0.5509,
+            "precision": 0.316
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.58,
+            "selection_rate_denial": 0.5541,
+            "approval_rate": 0.4459,
+            "tpr": 0.8314,
+            "fpr": 0.4838,
+            "precision": 0.3036
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.5805,
+            "selection_rate_denial": 0.5723,
+            "approval_rate": 0.4277,
+            "tpr": 0.8371,
+            "fpr": 0.4947,
+            "precision": 0.3315
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.5669,
+            "selection_rate_denial": 0.635,
+            "approval_rate": 0.365,
+            "tpr": 0.8547,
+            "fpr": 0.5476,
+            "precision": 0.3831
+          }
+        }
+      },
+      {
+        "method": "In-Processing: ExponentiatedGradient (Demographic Parity)",
+        "paradigm": "In-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.6385,
+        "accuracy": 0.8029,
+        "f1_score": 0.3784,
+        "selection_rate_denial": 0.0958,
+        "approval_rate": 0.9042,
+        "expected_cost_per_applicant": 0.8424,
+        "demographic_parity_difference": 0.0252,
+        "equal_opportunity_difference": 0.0528,
+        "equalized_odds_difference": 0.0528,
+        "disparate_impact_approval_ratio": 0.9725,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.8027,
+            "selection_rate_denial": 0.111,
+            "approval_rate": 0.889,
+            "tpr": 0.3057,
+            "fpr": 0.0555,
+            "precision": 0.6115
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.8141,
+            "selection_rate_denial": 0.0859,
+            "approval_rate": 0.9141,
+            "tpr": 0.2529,
+            "fpr": 0.0435,
+            "precision": 0.5959
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.7969,
+            "selection_rate_denial": 0.0913,
+            "approval_rate": 0.9087,
+            "tpr": 0.2534,
+            "fpr": 0.0438,
+            "precision": 0.6292
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.7713,
+            "selection_rate_denial": 0.0949,
+            "approval_rate": 0.9051,
+            "tpr": 0.265,
+            "fpr": 0.0272,
+            "precision": 0.7949
+          }
+        }
+      },
+      {
+        "method": "In-Processing: ExponentiatedGradient (Equalized Odds)",
+        "paradigm": "In-processing",
+        "requires_sensitive_at_inference": false,
+        "roc_auc": 0.644,
+        "accuracy": 0.8038,
+        "f1_score": 0.3804,
+        "selection_rate_denial": 0.0953,
+        "approval_rate": 0.9047,
+        "expected_cost_per_applicant": 0.8407,
+        "demographic_parity_difference": 0.0253,
+        "equal_opportunity_difference": 0.0401,
+        "equalized_odds_difference": 0.0401,
+        "disparate_impact_approval_ratio": 0.9725,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.7999,
+            "selection_rate_denial": 0.1082,
+            "approval_rate": 0.8918,
+            "tpr": 0.293,
+            "fpr": 0.0555,
+            "precision": 0.6013
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.8171,
+            "selection_rate_denial": 0.0829,
+            "approval_rate": 0.9171,
+            "tpr": 0.2529,
+            "fpr": 0.0398,
+            "precision": 0.617
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.8031,
+            "selection_rate_denial": 0.0974,
+            "approval_rate": 0.9026,
+            "tpr": 0.2805,
+            "fpr": 0.0438,
+            "precision": 0.6526
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.764,
+            "selection_rate_denial": 0.0973,
+            "approval_rate": 0.9027,
+            "tpr": 0.2564,
+            "fpr": 0.034,
+            "precision": 0.75
+          }
+        }
+      },
+      {
+        "method": "Post-Processing: ThresholdOptimizer (Demographic Parity)",
+        "paradigm": "Post-processing",
+        "requires_sensitive_at_inference": true,
+        "roc_auc": null,
+        "accuracy": 0.8178,
+        "f1_score": 0.4619,
+        "selection_rate_denial": 0.1173,
+        "approval_rate": 0.8827,
+        "expected_cost_per_applicant": 0.7547,
+        "demographic_parity_difference": 0.0229,
+        "equal_opportunity_difference": 0.1001,
+        "equalized_odds_difference": 0.1001,
+        "disparate_impact_approval_ratio": 0.9743,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.8182,
+            "selection_rate_denial": 0.1294,
+            "approval_rate": 0.8706,
+            "tpr": 0.3822,
+            "fpr": 0.0573,
+            "precision": 0.6557
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.8288,
+            "selection_rate_denial": 0.1065,
+            "approval_rate": 0.8935,
+            "tpr": 0.3401,
+            "fpr": 0.0472,
+            "precision": 0.6464
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.8205,
+            "selection_rate_denial": 0.121,
+            "approval_rate": 0.879,
+            "tpr": 0.371,
+            "fpr": 0.0477,
+            "precision": 0.6949
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.764,
+            "selection_rate_denial": 0.1119,
+            "approval_rate": 0.8881,
+            "tpr": 0.2821,
+            "fpr": 0.0442,
+            "precision": 0.7174
+          }
+        }
+      },
+      {
+        "method": "Post-Processing: ThresholdOptimizer (Equalized Odds)",
+        "paradigm": "Post-processing",
+        "requires_sensitive_at_inference": true,
+        "roc_auc": null,
+        "accuracy": 0.818,
+        "f1_score": 0.4212,
+        "selection_rate_denial": 0.0931,
+        "approval_rate": 0.9069,
+        "expected_cost_per_applicant": 0.8024,
+        "demographic_parity_difference": 0.0349,
+        "equal_opportunity_difference": 0.1262,
+        "equalized_odds_difference": 0.1262,
+        "disparate_impact_approval_ratio": 0.9622,
+        "passes_four_fifths_rule": true,
+        "by_group": {
+          "21-29": {
+            "count": 1414,
+            "base_default_rate": 0.2221,
+            "accuracy": 0.8182,
+            "selection_rate_denial": 0.104,
+            "approval_rate": 0.896,
+            "tpr": 0.3248,
+            "fpr": 0.0409,
+            "precision": 0.6939
+          },
+          "30-39": {
+            "count": 1700,
+            "base_default_rate": 0.2024,
+            "accuracy": 0.8312,
+            "selection_rate_denial": 0.0759,
+            "approval_rate": 0.9241,
+            "tpr": 0.2703,
+            "fpr": 0.0265,
+            "precision": 0.7209
+          },
+          "40-49": {
+            "count": 975,
+            "base_default_rate": 0.2267,
+            "accuracy": 0.8205,
+            "selection_rate_denial": 0.1108,
+            "approval_rate": 0.8892,
+            "tpr": 0.3484,
+            "fpr": 0.0411,
+            "precision": 0.713
+          },
+          "50+": {
+            "count": 411,
+            "base_default_rate": 0.2847,
+            "accuracy": 0.7567,
+            "selection_rate_denial": 0.0852,
+            "approval_rate": 0.9148,
+            "tpr": 0.2222,
+            "fpr": 0.0306,
+            "precision": 0.7429
+          }
+        }
+      }
+    ]
+  },
+  "regulatory_and_legal_discussion": {
+    "disparate_treatment_vs_disparate_impact": "Post-processing via ThresholdOptimizer achieves the lowest Demographic Parity and Equalized Odds gaps, but it requires passing the applicant's protected attribute (SEX or AGE_GROUP) at prediction time to apply group-specific cutoffs. Under fair-lending frameworks such as the US Equal Credit Opportunity Act (ECOA) and EU non-discrimination directives, explicitly applying different credit score cutoffs based on sex or age constitutes Disparate Treatment, which is generally prohibited even when motivated by reducing Disparate Impact. Therefore, in regulated lending, Pre-processing (Sample Reweighing) and In-processing (ExponentiatedGradient) are strongly preferred because they do not use protected attributes at inference time."
+  }
+}

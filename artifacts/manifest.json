@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "random_seed": 42,
+  "generated_files": [
+    "eda_summary.json",
+    "model.joblib",
+    "metrics.json",
+    "shap_background.parquet",
+    "shap_values_sample.parquet",
+    "explainability_summary.json",
+    "proxy_audit.json",
+    "fairness_before.json",
+    "fairness_after.json"
+  ]
+}

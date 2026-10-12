@@ -1,0 +1,143 @@
+{
+  "total_rows": 30000,
+  "default_rate": 0.2212,
+  "default_count": 6636,
+  "non_default_count": 23364,
+  "education_undocumented_remapped_to_4": 345,
+  "marriage_undocumented_remapped_to_3": 54,
+  "education_raw_value_counts": {
+    "2": 14030,
+    "1": 10585,
+    "3": 4917,
+    "5": 280,
+    "4": 123,
+    "6": 51,
+    "0": 14
+  },
+  "marriage_raw_value_counts": {
+    "2": 15964,
+    "1": 13659,
+    "3": 323,
+    "0": 54
+  },
+  "renamed_columns": {
+    "PAY_0": "PAY_1",
+    "default payment next month": "default"
+  },
+  "group_base_rates": {
+    "SEX": {
+      "Female": {
+        "n": 18112,
+        "default_rate": 0.2078
+      },
+      "Male": {
+        "n": 11888,
+        "default_rate": 0.2417
+      }
+    },
+    "AGE_GROUP": {
+      "21-29": {
+        "n": 9618,
+        "default_rate": 0.2284
+      },
+      "30-39": {
+        "n": 11238,
+        "default_rate": 0.2025
+      },
+      "40-49": {
+        "n": 6464,
+        "default_rate": 0.2297
+      },
+      "50+": {
+        "n": 2680,
+        "default_rate": 0.253
+      }
+    },
+    "MARRIAGE": {
+      "Married": {
+        "n": 13659,
+        "default_rate": 0.2347
+      },
+      "Others": {
+        "n": 377,
+        "default_rate": 0.2361
+      },
+      "Single": {
+        "n": 15964,
+        "default_rate": 0.2093
+      }
+    },
+    "SEX_x_AGE_GROUP": {
+      "Female | 21-29": {
+        "n": 6337,
+        "default_rate": 0.2222
+      },
+      "Female | 30-39": {
+        "n": 6673,
+        "default_rate": 0.1837
+      },
+      "Female | 40-49": {
+        "n": 3693,
+        "default_rate": 0.215
+      },
+      "Female | 50+": {
+        "n": 1409,
+        "default_rate": 0.2378
+      },
+      "Male | 21-29": {
+        "n": 3281,
+        "default_rate": 0.2405
+      },
+      "Male | 30-39": {
+        "n": 4565,
+        "default_rate": 0.23
+      },
+      "Male | 40-49": {
+        "n": 2771,
+        "default_rate": 0.2494
+      },
+      "Male | 50+": {
+        "n": 1271,
+        "default_rate": 0.2699
+      }
+    }
+  },
+  "split_sizes": {
+    "train": 21000,
+    "val": 4500,
+    "test": 4500
+  },
+  "split_default_rates": {
+    "train": 0.2212,
+    "val": 0.2211,
+    "test": 0.2213
+  },
+  "feature_target_correlations_train": {
+    "MONTHS_DELINQUENT_6M": 0.4041,
+    "MAX_DELINQUENCY_6M": 0.3772,
+    "PAY_1": 0.3274,
+    "PAY_2": 0.2678,
+    "PAY_3": 0.2406,
+    "PAY_4": 0.223,
+    "PAY_5": 0.2084,
+    "PAY_6": 0.1935,
+    "LIMIT_BAL": -0.1592,
+    "AVG_UTILIZATION_6M": 0.1185,
+    "UTILIZATION_RATIO_1": 0.0889,
+    "PAY_AMT1": -0.0701,
+    "PAY_TO_BILL_RATIO_1": -0.0672,
+    "PAY_AMT2": -0.0666,
+    "PAY_AMT4": -0.0559,
+    "PAY_AMT6": -0.0551,
+    "PAY_AMT3": -0.0527,
+    "PAY_AMT5": -0.0522,
+    "EDUCATION": 0.0297,
+    "BILL_GROWTH_6M": -0.029,
+    "BILL_AMT1": -0.0249,
+    "BILL_AMT2": -0.0198,
+    "BILL_AMT3": -0.0192,
+    "BILL_AMT4": -0.0141,
+    "BILL_AMT5": -0.0095,
+    "BILL_AMT6": -0.0069
+  }
+}
