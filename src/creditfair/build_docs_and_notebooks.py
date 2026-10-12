@@ -310,15 +310,15 @@ The dataset is the UCI **Default of Credit Card Clients** ($N = {eda['total_rows
 
 | Protected Attribute | Subgroup | Sample Count ($N$) | Observed Base Default Rate |
 | :--- | :--- | :---: | :---: |
-| **SEX** | Female | `{eda['group_base_rates']['SEX']['Female']['count']:,}` | `{eda['group_base_rates']['SEX']['Female']['default_rate']:.2%}` |
-| **SEX** | Male | `{eda['group_base_rates']['SEX']['Male']['count']:,}` | `{eda['group_base_rates']['SEX']['Male']['default_rate']:.2%}` |
-| **AGE_GROUP** | `21-29` | `{eda['group_base_rates']['AGE_GROUP']['21-29']['count']:,}` | `{eda['group_base_rates']['AGE_GROUP']['21-29']['default_rate']:.2%}` |
-| **AGE_GROUP** | `30-39` | `{eda['group_base_rates']['AGE_GROUP']['30-39']['count']:,}` | `{eda['group_base_rates']['AGE_GROUP']['30-39']['default_rate']:.2%}` |
-| **AGE_GROUP** | `40-49` | `{eda['group_base_rates']['AGE_GROUP']['40-49']['count']:,}` | `{eda['group_base_rates']['AGE_GROUP']['40-49']['default_rate']:.2%}` |
-| **AGE_GROUP** | `50+` | `{eda['group_base_rates']['AGE_GROUP']['50+']['count']:,}` | `{eda['group_base_rates']['AGE_GROUP']['50+']['default_rate']:.2%}` |
-| **MARRIAGE** | Married | `{eda['group_base_rates']['MARRIAGE']['Married']['count']:,}` | `{eda['group_base_rates']['MARRIAGE']['Married']['default_rate']:.2%}` |
-| **MARRIAGE** | Single | `{eda['group_base_rates']['MARRIAGE']['Single']['count']:,}` | `{eda['group_base_rates']['MARRIAGE']['Single']['default_rate']:.2%}` |
-| **MARRIAGE** | Others | `{eda['group_base_rates']['MARRIAGE']['Others']['count']:,}` | `{eda['group_base_rates']['MARRIAGE']['Others']['default_rate']:.2%}` |
+| **SEX** | Female | `{eda['group_base_rates']['SEX']['Female']['n']:,}` | `{eda['group_base_rates']['SEX']['Female']['default_rate']:.2%}` |
+| **SEX** | Male | `{eda['group_base_rates']['SEX']['Male']['n']:,}` | `{eda['group_base_rates']['SEX']['Male']['default_rate']:.2%}` |
+| **AGE_GROUP** | `21-29` | `{eda['group_base_rates']['AGE_GROUP']['21-29']['n']:,}` | `{eda['group_base_rates']['AGE_GROUP']['21-29']['default_rate']:.2%}` |
+| **AGE_GROUP** | `30-39` | `{eda['group_base_rates']['AGE_GROUP']['30-39']['n']:,}` | `{eda['group_base_rates']['AGE_GROUP']['30-39']['default_rate']:.2%}` |
+| **AGE_GROUP** | `40-49` | `{eda['group_base_rates']['AGE_GROUP']['40-49']['n']:,}` | `{eda['group_base_rates']['AGE_GROUP']['40-49']['default_rate']:.2%}` |
+| **AGE_GROUP** | `50+` | `{eda['group_base_rates']['AGE_GROUP']['50+']['n']:,}` | `{eda['group_base_rates']['AGE_GROUP']['50+']['default_rate']:.2%}` |
+| **MARRIAGE** | Married | `{eda['group_base_rates']['MARRIAGE']['Married']['n']:,}` | `{eda['group_base_rates']['MARRIAGE']['Married']['default_rate']:.2%}` |
+| **MARRIAGE** | Single | `{eda['group_base_rates']['MARRIAGE']['Single']['n']:,}` | `{eda['group_base_rates']['MARRIAGE']['Single']['default_rate']:.2%}` |
+| **MARRIAGE** | Others | `{eda['group_base_rates']['MARRIAGE']['Others']['n']:,}` | `{eda['group_base_rates']['MARRIAGE']['Others']['default_rate']:.2%}` |
 
 > **Why Base Rates Matter (The Fairness Impossibility Theorem):** Because Male applicants (`{eda['group_base_rates']['SEX']['Male']['default_rate']:.2%}`) and `50+` borrowers (`{eda['group_base_rates']['AGE_GROUP']['50+']['default_rate']:.2%}`) have higher historical default rates than Female (`{eda['group_base_rates']['SEX']['Female']['default_rate']:.2%}`) and `30-39` (`{eda['group_base_rates']['AGE_GROUP']['30-39']['default_rate']:.2%}`) borrowers, the **Chouldechova (2017) & Kleinberg et al. (2016) Impossibility Theorem** proves that no well-calibrated model can simultaneously satisfy **Demographic Parity** (equal denial rates) and **Equalized Odds** (equal TPR & FPR) across groups.
 
